@@ -31,6 +31,10 @@ public class Triangle extends Shape{
         public EquilateralTriangle(double a, String color){
             super(a, (Math.sqrt(3) * (1.0/2.0) * a),a,a,color);
         }
+        @Override
+        public String toString(){
+            return super.toString() + " and is also a EquilateralTriangle";
+        }
 
     }
 

@@ -1,4 +1,4 @@
-import java.util.ArrayList;
+
 import java.util.Scanner;
 
 public class Main {
@@ -89,7 +89,7 @@ public class Main {
 
         // Common block of code for both shapes
         if (shape != null) {
-            System.out.println(shape.toString());
+            System.out.println(shape);
             System.out.println("Area: " + shape.area());
             System.out.println("Perimeter: " + shape.perimeter());
         }
