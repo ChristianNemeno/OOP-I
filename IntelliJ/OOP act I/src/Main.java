@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
@@ -7,6 +8,7 @@ public class Main {
         String color;
         System.out.print("Choose a shape: ");
         String choice = scanner.nextLine();
+//ArrayList sad = new ArrayList<>();
 
         switch (choice) {
             case "Rectangle":
@@ -53,6 +55,31 @@ public class Main {
 
                 shape = new Ellipse(aE,bE,color);
 
+                break;
+            case "Triangle":
+                System.out.print("Enter a: ");
+                double aT = scanner.nextDouble();
+                System.out.print("Enter height: ");
+                double hT = scanner.nextDouble();
+                System.out.print("Enter b: ");
+                double bT = scanner.nextDouble();
+                System.out.print("Enter c: ");
+                double cT = scanner.nextDouble();
+                scanner.nextLine();
+                System.out.print("Enter color: ");
+                color = scanner.nextLine();
+
+                shape = new Triangle(aT,hT,bT,cT,color);
+                break;
+
+            case "EquilateralTriangle":
+                System.out.print("Enter side: ");
+                double sideET = scanner.nextDouble();
+                scanner.nextLine();
+                System.out.print("Enter color: ");
+                color = scanner.nextLine();
+
+                shape = new Triangle.EquilateralTriangle(sideET, color);
                 break;
 
             default:
