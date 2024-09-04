@@ -26,7 +26,7 @@ public class Ellipse extends Shape{
         return super.toString() + " is an Ellipse";
     }
 
-    public static class Circle extends Rectangle{
+    public static class Circle extends Ellipse{
         private double radius;
 
         public Circle(double radius, String color){
