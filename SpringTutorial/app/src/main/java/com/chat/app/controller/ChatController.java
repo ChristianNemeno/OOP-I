@@ -4,6 +4,7 @@ import com.chat.app.model.ChatMessage;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class ChatController {
@@ -16,4 +17,9 @@ public class ChatController {
     /**
      * Message mapping is an annotation, maps websocket messages to the destination
      */
+
+    @GetMapping
+    public String chat(){
+        return "chat";
+    }
 }
