@@ -18,7 +18,7 @@ public class ChatController {
      * Message mapping is an annotation, maps websocket messages to the destination
      */
 
-    @GetMapping
+    @GetMapping("chat")
     public String chat(){
         return "chat";
     }
