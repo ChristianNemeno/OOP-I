@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+// timestamp 5:47:11
+
 @RestController
 @RequestMapping("/api/categories")
 public class CategoryController {
