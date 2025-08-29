@@ -3,14 +3,18 @@ package Util;
 public class Wallet {
     private double amount;
 
-    public Wallet() {
-        amount = 0;
+    public Wallet(double amount) {
+        this.amount = amount;
     }
 
-    public void askForMoney(double money) {
+    public void addMoney(double money) {
         if(money > 0)
             this.amount += money;
 
+    }
+    public void deductMoney(double money) {
+        if(money > 0)
+            this.amount -= money;
     }
 
 }
