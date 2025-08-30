@@ -20,15 +20,13 @@ public class DataSeeder implements CommandLineRunner {
         this.categoryRepository = categoryRepository;
     }
 
-
     @Override
     public void run(String... args) throws Exception {
-
-        // When the application starts clear all existing data
+        // Clear all existing data
         productRepository.deleteAll();
         categoryRepository.deleteAll();
 
-        //Create Categories
+        // Create Categories
         Category electronics = new Category();
         electronics.setName("Electronics");
 
@@ -38,41 +36,37 @@ public class DataSeeder implements CommandLineRunner {
         Category home = new Category();
         home.setName("Home and Kitchen");
 
-        categoryRepository.saveAll(Arrays.asList(electronics, clothing, home));
-        //Create Products
+        categoryRepository.saveAll(Arrays.asList(electronics, home, clothing));
 
+        // Create Products
         Product phone = new Product();
         phone.setName("SmartPhone");
         phone.setDescription("Latest model smartphone with amazing features");
-        phone.setImageUrl("https://placehold.co/600x400/png");
+        phone.setImageUrl("https://placehold.co/600x400");
         phone.setPrice(699.99);
         phone.setCategory(electronics);
 
         Product laptop = new Product();
         laptop.setName("Laptop");
-        laptop.setDescription("High performance");
-        laptop.setImageUrl("https://placehold.co/600x400/png");
-        laptop.setPrice(1899.99);
+        laptop.setDescription("High-performance laptop for work and play.");
+        laptop.setImageUrl("https://placehold.co/600x400");
+        laptop.setPrice(999.99);
         laptop.setCategory(electronics);
 
         Product jacket = new Product();
-        jacket.setName("Jacket");
-        jacket.setDescription("Warm and comfy");
-        jacket.setImageUrl("https://placehold.co/600x400/png");
-        jacket.setPrice(10.99);
+        jacket.setName("Winter Jacket");
+        jacket.setDescription("Warm and cozy jacket for winter.");
+        jacket.setImageUrl("https://placehold.co/600x400");
+        jacket.setPrice(129.99);
         jacket.setCategory(clothing);
 
         Product blender = new Product();
         blender.setName("Blender");
-        blender.setDescription("Good blendy");
-        blender.setImageUrl("https://placehold.co/600x400/png");
-        blender.setPrice(15.99);
+        blender.setDescription("High-speed blender for smoothies and more.");
+        blender.setImageUrl("https://placehold.co/600x400");
+        blender.setPrice(89.99);
         blender.setCategory(home);
 
-        productRepository.save(phone);
-        productRepository.save(laptop);
-        productRepository.save(jacket);
-        productRepository.save(blender);
-
+        productRepository.saveAll(Arrays.asList(phone, laptop, jacket, blender));
     }
 }

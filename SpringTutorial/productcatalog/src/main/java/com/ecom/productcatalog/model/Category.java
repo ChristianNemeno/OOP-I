@@ -2,6 +2,8 @@ package com.ecom.productcatalog.model;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -15,8 +17,9 @@ public class Category {
     private Long id;
     private String name;
 
-    @OneToMany(mappedBy = "category")
-    @JsonBackReference
+    @OneToMany(mappedBy = "category",
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY)
     private Set<Product> products;
 
 }
