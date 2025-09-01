@@ -8,6 +8,6 @@ public class StudentTransactionTest {
 
     @Test
     public void studentTransactionTest() {
-
+        assertEquals(100, student.getWallet().getAmount());
     }
 }
