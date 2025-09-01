@@ -17,4 +17,7 @@ public class Wallet {
             this.amount -= money;
     }
 
+    public double getAmount() {
+        return amount;
+    }
 }
