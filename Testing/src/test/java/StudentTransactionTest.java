@@ -7,7 +7,13 @@ public class StudentTransactionTest {
     Student student = new Student(1, "Christian");
 
     @Test
-    public void studentTransactionTest() {
+    public void studentInitialBalance() {
+
         assertEquals(100, student.getWallet().getAmount());
+    }
+    @Test
+    public void studentSpend(){
+        student.spend(10);
+        assertEquals(90, student.getWallet().getAmount());
     }
 }
