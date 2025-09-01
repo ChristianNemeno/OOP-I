@@ -14,6 +14,10 @@ public class Student {
         this.wallet = new Wallet(100);
     }
 
+    public Wallet getWallet() {
+        return wallet;
+    }
+
     public void spend(double amount) {
         if(amount < 0){
             throw new IllegalArgumentException("Amount cannot be negative");
