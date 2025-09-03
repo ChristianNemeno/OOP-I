@@ -1,8 +1,9 @@
 package com.example.quiz_api.models;
 
 import jakarta.persistence.*;
-import jdk.jfr.Enabled;
 import lombok.Data;
+
+import java.util.List;
 
 @Entity
 @Data
@@ -16,4 +17,7 @@ public class Question {
     @ManyToOne
     @JoinColumn(name = "quiz_id")
     private Quiz quiz;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Option> optionList;
 }
