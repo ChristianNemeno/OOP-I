@@ -12,7 +12,8 @@ public class Option {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private List<String> options;
+
+    private String value;
 
     @ManyToOne
     @JoinColumn(name = "question_id")
