@@ -3,8 +3,9 @@ package com.example.quiz_api.models;
 
 import jakarta.persistence.*;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
-import java.util.List;
 
 @Entity
 @Data
@@ -15,8 +16,9 @@ public class Option {
 
     private String value;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "question_id")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Question question;
-
 }
