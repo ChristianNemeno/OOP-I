@@ -14,6 +14,8 @@ import java.util.List;
 public class QuizDTO {
 
     private Long id;
+
+
     private String title;
     private List<String> questions;
 }
