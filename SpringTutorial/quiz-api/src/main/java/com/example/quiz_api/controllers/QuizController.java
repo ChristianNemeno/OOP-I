@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/api/quizzes")
 public class QuizController {
 
-    private QuizService quizService;
+    private final QuizService quizService;
 
     public QuizController(QuizService quizService) {
         this.quizService = quizService;
@@ -28,7 +28,7 @@ public class QuizController {
     public Quiz getQuizById(@PathVariable Long id){
         return quizService.getQuizById(id).orElseThrow(
                 () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Quiz with id " + id + " not found")
-                ); // this if-else not found throws a http status 400 means not found
+                ); // this if-else not found throws a http status 404 means not found
     }
 
     @PostMapping
