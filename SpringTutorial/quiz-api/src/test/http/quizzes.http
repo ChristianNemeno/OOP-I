@@ -1,0 +1,4 @@
+# Get all
+GET http://localhost:8080/api/quizzes
+Accept: application/json
+
