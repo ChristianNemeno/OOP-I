@@ -21,11 +21,11 @@ public class QuizService {
     public List<Quiz> getAllQuizzes() {
         return quizRepository.findAll();
     }
-
+    @Transactional
     public Quiz saveQuiz(Quiz quiz) {
         return quizRepository.save(quiz);
     }
-
+    @Transactional
     public void deleteQuiz(Quiz quiz) {
         quizRepository.delete(quiz);
     }
