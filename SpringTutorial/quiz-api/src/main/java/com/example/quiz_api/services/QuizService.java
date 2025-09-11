@@ -30,10 +30,10 @@ public class QuizService {
         quizRepository.delete(quiz);
     }
 
-    public Optional<Quiz> getQuizById(Long id) {
-        return quizRepository.findById(id);
-    }
 
+    public Quiz getQuizById(Long id) {
+        return quizRepository.findById(id).orElseThrow(() -> new RuntimeException("Quiz with id " + id + " not found"));
+    }
 }
 
 

@@ -25,11 +25,17 @@ public class QuizController {
     public List<Quiz> getAllQuizzes(){
         return quizService.getAllQuizzes();
     }
+
+
     @GetMapping("/{id}")
-    public Quiz getQuizById(@PathVariable Long id){
-        return quizService.getQuizById(id).orElseThrow(
-                () -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Quiz with id " + id + " not found")
-                ); // this if-else not found throws a http status 404 means not found
+    public QuizDTO getQuizById(@PathVariable Long id){
+
+        Quiz q = quizService.getQuizById(id);
+        if(q == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Quiz with id " + id + " not found");
+        }
+
+        return toDTO(q);
     }
 
     @PostMapping
