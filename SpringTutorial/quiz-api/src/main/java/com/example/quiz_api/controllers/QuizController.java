@@ -1,6 +1,7 @@
 package com.example.quiz_api.controllers;
 
 
+import com.example.quiz_api.dto.QuizDTO;
 import com.example.quiz_api.models.Quiz;
 import com.example.quiz_api.services.QuizService;
 import org.springframework.http.HttpStatus;
@@ -37,6 +38,24 @@ public class QuizController {
         return quizService.saveQuiz(quiz);
     }
 
+
+    private QuizDTO toDTO(Quiz q){
+        QuizDTO dto = new QuizDTO();
+
+        dto.setId(q.getId());
+        dto.setTitle(q.getTitle());
+        dto.setQuestions(q.getQuestions());
+        return dto;
+    }
+
+    private Quiz toEntity(QuizDTO q){
+        Quiz quiz = new Quiz();
+
+        quiz.setId(q.getId());
+        quiz.setTitle(q.getTitle());
+        quiz.setQuestions(q.getQuestions());
+        return quiz;
+    }
 
 
 

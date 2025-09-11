@@ -1,5 +1,6 @@
 package com.example.quiz_api.dto;
 
+import com.example.quiz_api.models.Question;
 import lombok.*;
 
 import java.util.List;
@@ -17,5 +18,5 @@ public class QuizDTO {
 
 
     private String title;
-    private List<String> questions;
+    private List<Question> questions;
 }
