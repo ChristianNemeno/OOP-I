@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/quizzes")
@@ -22,8 +23,12 @@ public class QuizController {
     }
 
     @GetMapping
-    public List<Quiz> getAllQuizzes(){
-        return quizService.getAllQuizzes();
+    public List<QuizDTO> getAllQuizzes(){
+        return quizService.getAllQuizzes()
+                .stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList())
+                ;
     }
 
 
@@ -40,8 +45,9 @@ public class QuizController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public Quiz addQuiz(@RequestBody Quiz quiz){
-        return quizService.saveQuiz(quiz);
+    public QuizDTO addQuiz(@RequestBody QuizDTO dto){
+        Quiz saved = quizService.saveQuiz(toEntity(dto));
+        return toDTO(saved);
     }
 
 
