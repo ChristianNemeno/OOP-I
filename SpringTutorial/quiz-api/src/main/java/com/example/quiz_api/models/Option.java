@@ -16,6 +16,8 @@ public class Option {
 
     private String value;
 
+    private boolean isCorrect;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "question_id")
     @ToString.Exclude
